@@ -1,5 +1,4 @@
-services: 
-  # This service is used to build the static files for the site. It mounts the current directory and the output directory, runs the build command, and then copies the built files to the output directory.
+services:
   builder:
     image: node:20-alpine
     working_dir: /app
@@ -7,9 +6,15 @@ services:
       - ./:/app
       - ../site:/out
     command: >
-     sh -lc "npm ci && npm run build && rm -rf /out/* && cp -a dist/. /out/"
-    profiles: ["build"]    
-  # Runtime (nginx) service that serves the built static files. It mounts the output directory to the nginx html directory and exposes port 8086.
+      sh -lc "
+        npm install -g pnpm &&
+        pnpm install &&
+        pnpm run build &&
+        rm -rf /out/* &&
+        cp -a dist/. /out/
+      "
+    profiles: ["build"]
+
   web:
     image: nginx:alpine
     container_name: crowdfunding-product-page
