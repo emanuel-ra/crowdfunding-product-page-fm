@@ -1,4 +1,3 @@
-import { Hero } from "./components/Hero.tsx"
 
 export function Header() {
   return (
