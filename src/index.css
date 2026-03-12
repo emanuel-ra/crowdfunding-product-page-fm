@@ -7,10 +7,6 @@ body {
   font-family: 'Commissioner', sans-serif;
 }
 
-@media (min-width: 1440px) {
-  /* Styles for desktop */
-}
-
 @layer base {
   :root {
     --color-green-400: hsl(176, 50%, 47%);
@@ -44,5 +40,27 @@ body {
   }
   .bg-gray-500 {
     background-color: var(--color-gray-500);
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-[1440px] mx-auto;
+    ;
+  }
+  .header {
+    @apply flex items-center justify-between py-8 text-white;
+  }
+  .header__title {
+    @apply text-2xl font-bold z-10;
+  }
+  .header__nav {
+    @apply flex items-center gap-6 z-10;
+  }
+  .header__nav-item {
+    @apply z-10;
+  }
+  .hero {
+    @apply absolute top-0 right-0 w-screen -z-10;
   }
 }
