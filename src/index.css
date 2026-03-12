@@ -1,1 +1,48 @@
 @import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap');
+
+/* Then set the font-family */
+body {
+  font-family: 'Commissioner', sans-serif;
+}
+
+@media (min-width: 1440px) {
+  /* Styles for desktop */
+}
+
+@layer base {
+  :root {
+    --color-green-400: hsl(176, 50%, 47%);
+    --color-green-700: hsl(176, 72%, 28%);
+    --color-black: hsl(0, 0%, 0%);
+    --color-gray-500: hsl(0, 0%, 48%);
+  }
+}
+
+@layer utilities {
+  .text-green-400 {
+    color: var(--color-green-400);
+  }
+  .bg-green-400 {
+    background-color: var(--color-green-400);
+  }
+  .text-green-700 {
+    color: var(--color-green-700);
+  }
+  .bg-green-700 {
+    background-color: var(--color-green-700);
+  }
+  .text-black {
+    color: var(--color-black);
+  }
+  .bg-black {
+    background-color: var(--color-black);
+  }
+  .text-gray-500 {
+    color: var(--color-gray-500);
+  }
+  .bg-gray-500 {
+    background-color: var(--color-gray-500);
+  }
+}
